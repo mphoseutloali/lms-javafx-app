@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.lms.controller.CoursesController"
+      spacing="10"
+      style="-fx-background-color: #391B49;"> <!-- Deep purple -->
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Courses" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        <Pane HBox.hgrow="ALWAYS" />
+        <TextField fx:id="searchField"
+                   promptText="Search courses..."
+                   prefWidth="200"
+                   style="
+                       -fx-background-color: #C29CE4;
+                       -fx-prompt-text-fill: derive(#C29CE4, -40%);
+                       -fx-background-radius: 5px;
+                       -fx-border-radius: 5px;
+                       -fx-text-fill: black;
+                   " />
+        <Button text="Add Course"
+                onAction="#showAddCourseDialog"
+                style="
+                    -fx-background-color: #9570C6;
+                    -fx-text-fill: white;
+                    -fx-background-radius: 5px;
+                    -fx-padding: 8px 16px;
+                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 2);
+                "/>
+    </HBox>
+
+    <TableView fx:id="coursesTable"
+               VBox.vgrow="ALWAYS"
+               style="
+                   -fx-background-color: #999ECF;
+                   -fx-table-cell-border-color: derive(#999ECF, -10%);
+                   -fx-table-header-border-color: derive(#999ECF, -20%);
+                   -fx-control-inner-background: #C29CE4;
+               ">
+        <columns>
+            <TableColumn fx:id="courseIdColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="courseNameColumn" text="Course Name" prefWidth="200"/>
+            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="300"/>
+            <TableColumn fx:id="creditHoursColumn" text="Credit Hours" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <Pagination fx:id="coursesPagination"
+                pageCount="1"
+                prefHeight="40"
+                style="
+                    -fx-control-inner-background: #C29CE4;
+                    -fx-background-radius: 3px;
+                "/>
+
+</VBox>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.lms.controller.EnrollmentsController"
+      spacing="10"
+      style="-fx-background-color: #391B49;"> <!-- Deep purple background -->
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Enrollments" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        <Pane HBox.hgrow="ALWAYS" />
+
+        <ComboBox fx:id="filterComboBox"
+                  promptText="Filter by..."
+                  prefWidth="150"
+                  style="
+                      -fx-background-color: #C29CE4;
+                      -fx-prompt-text-fill: derive(#C29CE4, -40%);
+                      -fx-background-radius: 5px;
+                      -fx-border-radius: 5px;
+                      -fx-text-fill: black;
+                  "/>
+
+        <Button fx:id="exportButton"
+                text="Export to CSV"
+                style="
+                    -fx-background-color: #9570C6;
+                    -fx-text-fill: white;
+                    -fx-background-radius: 5px;
+                    -fx-padding: 8px 12px;
+                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 2);
+                "/>
+
+        <Button text="Add Enrollment"
+                onAction="#showAddEnrollmentDialog"
+                style="
+                    -fx-background-color: #999ECF;
+                    -fx-text-fill: black;
+                    -fx-background-radius: 5px;
+                    -fx-padding: 8px 12px;
+                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 2);
+                "/>
+    </HBox>
+
+    <TableView fx:id="enrollmentsTable"
+               VBox.vgrow="ALWAYS"
+               style="
+                   -fx-background-color: #999ECF;
+                   -fx-table-cell-border-color: derive(#999ECF, -10%);
+                   -fx-table-header-border-color: derive(#999ECF, -20%);
+                   -fx-control-inner-background: #C29CE4;
+               ">
+        <columns>
+            <TableColumn fx:id="enrollmentIdColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="studentNameColumn" text="Student" prefWidth="150"/>
+            <TableColumn fx:id="courseNameColumn" text="Course" prefWidth="200"/>
+            <TableColumn fx:id="enrollmentDateColumn" text="Date" prefWidth="100"/>
+            <TableColumn fx:id="progressColumn" text="Progress" prefWidth="150"/>
+            <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <Pagination fx:id="enrollmentsPagination"
+                pageCount="1"
+                prefHeight="40"
+                style="
+                    -fx-control-inner-background: #C29CE4;
+                    -fx-background-radius: 3px;
+                "/>
+
+</VBox>

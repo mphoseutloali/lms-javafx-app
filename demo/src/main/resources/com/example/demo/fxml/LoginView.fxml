@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.lms.controller.LoginController"
+      alignment="CENTER" spacing="20"
+      prefWidth="400" prefHeight="500"
+      style="-fx-background-color: #391B49;"> <!-- Deep purple background -->
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Learning Management System"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+    <Label text="Admin Login"
+           style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+
+    <VBox spacing="10" alignment="CENTER"
+          style="-fx-background-color: #C29CE4; -fx-background-radius: 5px;"
+          maxWidth="350" prefWidth="350">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <Label text="Username"
+               style="-fx-text-fill: black;"/>
+
+        <TextField fx:id="usernameField"
+                   promptText="Enter username"
+                   prefWidth="250"
+                   style="
+                       -fx-background-color: #f8f8ff;
+                       -fx-prompt-text-fill: derive(#f8f8ff, -40%);
+                       -fx-background-radius: 5px;
+                       -fx-border-radius: 5px;
+                       -fx-text-fill: black;
+                   "/>
+
+        <Label text="Password"
+               style="-fx-text-fill: black;"/>
+
+        <PasswordField fx:id="passwordField"
+                       promptText="Enter password"
+                       prefWidth="250"
+                       style="
+                          -fx-background-color: #f8f8ff;
+                          -fx-prompt-text-fill: derive(#f8f8ff, -40%);
+                          -fx-background-radius: 5px;
+                          -fx-border-radius: 5px;
+                          -fx-text-fill: black;
+                      "/>
+
+        <Label fx:id="errorLabel"
+               textFill="RED"
+               visible="false"
+               managed="false"
+               style="-fx-text-fill: red;"/>
+
+        <Button text="Login"
+                onAction="#handleLogin"
+                prefWidth="150"
+                style="
+                    -fx-background-color: #9570C6;
+                    -fx-text-fill: white;
+                    -fx-background-radius: 5px;
+                    -fx-padding: 8px 16px;
+                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0, 0, 2);
+                "/>
+    </VBox>
+
+    <Label text="© 2025 Learning Management System"
+           style="-fx-font-size: 12px; -fx-text-fill: #ddd;"/>
+</VBox>

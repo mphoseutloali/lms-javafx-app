@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.demo.lms.controller.DashboardController"
+      spacing="20" alignment="TOP_CENTER"
+      style="-fx-background-color: #391B49;"> <!-- Deep purple background -->
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+    <HBox spacing="20" alignment="CENTER">
+        <!-- Students Card -->
+        <VBox alignment="CENTER"
+              style="-fx-background-color: #9570C6; -fx-padding: 20px; -fx-background-radius: 5px; -fx-text-fill: white;"
+              HBox.hgrow="ALWAYS">
+            <Label text="Students" style="-fx-font-size: 18px;"/>
+            <Label fx:id="studentCountLabel" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold;"/>
+        </VBox>
+
+        <!-- Courses Card -->
+        <VBox alignment="CENTER"
+              style="-fx-background-color: #C29CE4; -fx-padding: 20px; -fx-background-radius: 5px; -fx-text-fill: black;"
+              HBox.hgrow="ALWAYS">
+            <Label text="Courses" style="-fx-font-size: 18px;"/>
+            <Label fx:id="courseCountLabel" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold;"/>
+        </VBox>
+
+        <!-- Enrollments Card -->
+        <VBox alignment="CENTER"
+              style="-fx-background-color: #999ECF; -fx-padding: 20px; -fx-background-radius: 5px; -fx-text-fill: black;"
+              HBox.hgrow="ALWAYS">
+            <Label text="Enrollments" style="-fx-font-size: 18px;"/>
+            <Label fx:id="enrollmentCountLabel" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
+
+    <TitledPane text="Recent Enrollments" collapsible="false" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: #C29CE4; -fx-text-fill: black;">
+        <TableView fx:id="recentEnrollmentsTable" VBox.vgrow="ALWAYS"
+                   style="-fx-background-color: transparent;">
+            <columns>
+                <TableColumn fx:id="studentNameColumn" text="Student" prefWidth="200"/>
+                <TableColumn fx:id="courseNameColumn" text="Course" prefWidth="200"/>
+                <TableColumn fx:id="enrollmentDateColumn" text="Date" prefWidth="150"/>
+                <TableColumn fx:id="progressColumn" text="Progress" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </TitledPane>
+
+    <HBox spacing="20" alignment="CENTER">
+        <VBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Overall Course Completion" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+            <ProgressBar fx:id="overallProgressBar" progress="0.0"
+                         style="-fx-accent: #9570C6;"
+                         prefWidth="300" prefHeight="20"/>
+            <Label fx:id="overallProgressLabel" text="0%" style="-fx-font-size: 14px; -fx-text-fill: white;"/>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Active Students" style="-fx-font-size: 16px; -fx-text-fill: white;"/>
+            <ProgressIndicator fx:id="activeStudentsIndicator" progress="0.0"
+                               style="-fx-accent: #9570C6;"/>
+            <Label fx:id="activeStudentsLabel" text="0%" style="-fx-font-size: 14px; -fx-text-fill: white;"/>
+        </VBox>
+    </HBox>
+
+</VBox>
